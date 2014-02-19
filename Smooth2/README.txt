@@ -1,5 +1,5 @@
 Purpose:
-	Smooth1 is an example of an OpenGL program that loads a mesh (given in a .OBJ file) and renders it with various features. Learn how smooth works so that you can modify the code. You can find meshes in .OBJ format from various online sources (when you use sources, properly cite and acknowledge where you obtained them from).
+	Smooth is an example of an OpenGL program that loads a mesh (given in a .OBJ file) and renders it with various features. Learn how smooth works so that you can modify the code. You can find meshes in .OBJ format from various online sources (when you use sources, properly cite and acknowledge where you obtained them from).
 
 	I modified the smooth program to implement a bsic graphic pipeline for rendering triangular meshes.
 
