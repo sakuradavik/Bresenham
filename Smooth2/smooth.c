@@ -68,6 +68,7 @@ struct rgbf{float r; float g; float b;};
 
 //Determines whether using my pipeline or smooth's
 GLboolean togglePipeline = GL_FALSE;
+GLboolean wireFrame = GL_TRUE;
 
 //might be a more efficient way but but for now I wil do like this
 struct rgbf pixels[WIDTH][HEIGHT];
@@ -372,7 +373,8 @@ void brasenham(struct twoDPoints points[]){
         brasenham2(x0,y0,x2,y2);
         brasenham2(x1,y1,x2,y2);
 
-        scanline(points[3*i], points[3*i+1], points[3*i+2]);
+        if(!wireFrame)
+            scanline(points[3*i], points[3*i+1], points[3*i+2]);
    }
 }
 
@@ -678,11 +680,17 @@ keyboard(unsigned char key, int x, int y)
             break;
             
         case 'w':
+            if(!togglePipeline) {
             glGetIntegerv(GL_POLYGON_MODE, params);
             if (params[0] == GL_FILL)
                 glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
             else
                 glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+            }
+            else{
+                wireFrame = !wireFrame;
+                pipeline();
+            }
             break;
             
         case 'c':
